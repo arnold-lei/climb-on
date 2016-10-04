@@ -3,7 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 import App from '../imports/ui/App.jsx';
-laces = new Mongo.Collection('places');
+places = new Mongo.Collection('places');
 
 if (Meteor.isClient) {
     var lookup = [];
