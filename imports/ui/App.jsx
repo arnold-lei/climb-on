@@ -61,6 +61,7 @@ class App extends Component {
       <div className="container">
         <header>
           <h1>Climb On ({this.props.incompleteCount})</h1>
+          <AccountsUIWrapper />
         </header>
 
         {this.renderMap()}
