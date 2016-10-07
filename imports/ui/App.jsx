@@ -5,6 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import { Tasks } from '../api/tasks.js';
 import Map from './Map.jsx'
+import MainMapBlock from './main_map_block'
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
@@ -36,7 +37,10 @@ class App extends Component {
     });
   }
   renderMap(){
-      return(<Map />)
+      return(
+        //   <Map />
+          <MainMapBlock />
+      )
   }
   renderTasks() {
     let filteredTasks = this.props.tasks;
@@ -60,7 +64,7 @@ class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Climb On ({this.props.incompleteCount})</h1>
+          <h1>Climb On</h1>
         </header>
 
         {this.renderMap()}
