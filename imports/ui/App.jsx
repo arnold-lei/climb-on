@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Tasks } from '../api/tasks.js';
-import {Map} from './Map.jsx'
+import Map from './Map.jsx'
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
@@ -35,7 +35,9 @@ class App extends Component {
       hideCompleted: !this.state.hideCompleted,
     });
   }
-
+  renderMap(){
+      return(<Map />)
+  }
   renderTasks() {
     let filteredTasks = this.props.tasks;
     if (this.state.hideCompleted) {
@@ -54,12 +56,6 @@ class App extends Component {
       );
     });
   }
-  renderMap(){
-    return(
-        <Map />
-    )
-  }
-
   render() {
     return (
       <div className="container">
@@ -90,9 +86,11 @@ class App extends Component {
         </header>
 
         <ul>
-          {this.renderTasks()}
+          {/* {this.renderTasks()} */}
         </ul>
-        <Map />
+
+        {this.renderMap()}
+
       </div>
     );
   }

@@ -1,22 +1,8 @@
 <head>
   <title>googlemaps-geolocation</title>
+
 </head>
 
 <body>
-
-  <div id="render-target"></div>
-
-
-  <h1>ClimbON</h1>
-  {{> map}}
+    <div id="render-target"></div>
 </body>
-
-<template name="map">
-  <div class="map-container">
-    {{#unless geolocationError}}
-      {{> googleMap name="map" options=mapOptions}}
-    {{else}}
-      Geolocation failed: {{geolocationError}}
-    {{/unless}}
-  </div>
-</template>
