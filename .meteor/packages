@@ -23,3 +23,6 @@ mdg:geolocation
 accounts-ui@1.1.9
 accounts-password@1.3.0
 react-meteor-data
+meteortoys:allthings
+themeteorchef:bert
+dburles:google-maps

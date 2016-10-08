@@ -1,6 +1,6 @@
-import React, {PropTypes, Component} from 'react';
+import React, { Component } from 'react';
 import controllable from 'react-controllables';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+// import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import GoogleMap from 'google-map-react';
 import MarkerExample, {K_SCALE_NORMAL} from './marker_example.jsx';
@@ -19,38 +19,42 @@ const K_MARGIN_LEFT = 30;
 const K_HOVER_DISTANCE = 30;
 
 @controllable(['center', 'zoom', 'markers'])
-export default class MainMapBlock extends Component {
-  static propTypes = {
-    onCenterChange: PropTypes.func, // @controllable generated fn
-    onZoomChange: PropTypes.func, // @controllable generated fn
-    onBoundsChange: PropTypes.func,
-    onMarkerHover: PropTypes.func,
-    onChildClick: PropTypes.func,
-    center: PropTypes.any,
-    zoom: PropTypes.number,
-    markers: PropTypes.any,
-    visibleRowFirst: PropTypes.number,
-    visibleRowLast: PropTypes.number,
-    maxVisibleRows: PropTypes.number,
-    hoveredRowIndex: PropTypes.number,
-    openBallonIndex: PropTypes.number
-  }
+class MainMapBlock extends React.Component{
+    getDefaultProps() {
+        return {
+            onCenterChange: Component.func, // @controllable generated fn
+            onZoomChange: Component.func, // @controllable generated fn
+            onBoundsChange: Component.func,
+            onMarkerHover: Component.func,
+            onChildClick: Component.func,
+            center: Component.any,
+            zoom: Component.number,
+            markers: Component.any,
+            visibleRowFirst: Component.number,
+            visibleRowLast: Component.number,
+            maxVisibleRows: Component.number,
+            hoveredRowIndex: Component.number,
+            openBallonIndex: Component.number
+        }
+    }
+  // static propTypes = {
 
-  static defaultProps = {
-    center: new List([59.744465, 30.042834]),
-    zoom: 10,
-    visibleRowFirst: -1,
-    visibleRowLast: -1,
-    hoveredRowIndex: -1
-  }
-
-  shouldComponentUpdate = shouldPureComponentUpdate;
+  // }
 
   constructor(props) {
-    super(props);
+      super(props);
+      this.state={
+          center: new List([59.744465, 30.042834]),
+          zoom: 10,
+          visibleRowFirst: -1,
+          visibleRowLast: -1,
+          hoveredRowIndex: -1
+      }
   }
 
-  _onBoundsChange = (center, zoom, bounds, marginBounds) => {
+  // shouldComponentUpdate = shouldPureComponentUpdate;
+
+  _onBoundsChange(center, zoom, bounds, marginBounds) {
     if (this.props.onBoundsChange) {
       this.props.onBoundsChange({center, zoom, bounds, marginBounds});
     } else {
@@ -59,7 +63,7 @@ export default class MainMapBlock extends Component {
     }
   }
 
-  _onChildClick = (key, childProps) => {
+  _onChildClick(key, childProps) {
     const markerId = childProps.marker.get('id');
     const index = this.props.markers.findIndex(m => m.get('id') === markerId);
     if (this.props.onChildClick) {
@@ -67,7 +71,7 @@ export default class MainMapBlock extends Component {
     }
   }
 
-  _onChildMouseEnter = (key, childProps) => {
+  _onChildMouseEnter(key, childProps) {
     const markerId = childProps.marker.get('id');
     const index = this.props.markers.findIndex(m => m.get('id') === markerId);
     if (this.props.onMarkerHover) {
@@ -75,19 +79,19 @@ export default class MainMapBlock extends Component {
     }
   }
 
-  _onChildMouseLeave = (/* key, childProps */) => {
+  _onChildMouseLeave(/* key, childProps */){
     if (this.props.onMarkerHover) {
       this.props.onMarkerHover(-1);
     }
   }
 
-  _onBalloonCloseClick = () => {
+  _onBalloonCloseClick (){
     if (this.props.onChildClick) {
       this.props.onChildClick(-1);
     }
   }
 
-  _distanceToMouse = customDistanceToMouse;
+  // _distanceToMouse = customDistanceToMouse;
 
   render() {
     const {rowFrom, rowTo} = getRealFromTo(this.props.visibleRowFirst, this.props.visibleRowLast, this.props.maxVisibleRows, this.props.markers.size);

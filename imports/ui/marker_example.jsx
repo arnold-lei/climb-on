@@ -7,7 +7,7 @@ import cx from 'classnames';
 
 import controllable from 'react-controllables';
 
-import shouldPureComponentUpdate from 'react-pure-render/function';
+// import shouldPureComponentUpdate from 'react-pure-render/function';
 import {getHintBottomOffsetClass, getHintBaloonVerticalPosClass, getHintBaloonHorizontalPosStyle} from '../helpers/balloon_pos.js';
 import {getMarkerHolderStyle, getMarkerStyle, getMarkerTextStyle} from '../helpers/marker_styles.js';
 
@@ -48,71 +48,77 @@ function calcMarkerTextStyle(scale, markerTextStyle) {
 export {K_SCALE_NORMAL};
 
 @controllable(['hoverState', 'showBallonState'])
-export default class MapMarker extends Component {
-  static propTypes = {
-    $hover: PropTypes.bool,
-    $dimensionKey: PropTypes.any,
-    $getDimensions: PropTypes.func,
-    $geoService: PropTypes.any,
-    $onMouseAllow: PropTypes.func,
+class MapMarker extends React.Component {
+  propTypes() {
+      return{
+          $hover: React.PropTypes.bool,
+          $dimensionKey: React.PropTypes.any,
+          $getDimensions: React.PropTypes.func,
+          $geoService: React.PropTypes.any,
+          $onMouseAllow: React.PropTypes.func,
 
-    marker: PropTypes.any,
-    hoveredAtTable: PropTypes.bool,
-    scale: PropTypes.number,
-    showBallon: PropTypes.bool,
-    onCloseClick: PropTypes.func,
-    showBallonState: PropTypes.bool.isRequired,
-    onShowBallonStateChange: PropTypes.func.isRequired,
+          marker: React.PropTypes.any,
+          hoveredAtTable: React.PropTypes.bool,
+          scale: React.PropTypes.number,
+          showBallon: React.PropTypes.bool,
+          onCloseClick: React.PropTypes.func,
+          showBallonState: React.PropTypes.bool.isRequired,
+          onShowBallonStateChange: React.PropTypes.func.isRequired,
 
-    // animation helpers
-    hoverState: PropTypes.bool.isRequired,
-    onHoverStateChange: PropTypes.func.isRequired,
+          // animation helpers
+          hoverState: React.PropTypes.bool.isRequired,
+          onHoverStateChange: React.PropTypes.func.isRequired,
 
-    size: PropTypes.any,
-    origin: PropTypes.any,
-    imageClass: PropTypes.string,
-    image: PropTypes.string,
-    withText: PropTypes.bool,
-    hintType: PropTypes.string
+          size: React.PropTypes.any,
+          origin: React.PropTypes.any,
+          imageClass: React.PropTypes.string,
+          image: React.PropTypes.string,
+          withText: React.PropTypes.bool,
+          hintType: React.PropTypes.string
+      }
+
   };
 
-  static defaultProps = {
-    scale: K_SCALE_NORMAL,
-    hoverState: false,
-    showBallonState: false,
-    withText: false,
-    size: {width: 62, height: 60},
-    origin: {x: 15 / 62, y: 1},
-    imageClass: 'map-marker__marker--big',
-    hintType: 'hint--info'
+    getDefaultProps() {
+        return {
+            scale: K_SCALE_NORMAL,
+            hoverState: false,
+            showBallonState: false,
+            withText: false,
+            size: {width: 62, height: 60},
+            origin: {x: 15 / 62, y: 1},
+            imageClass: 'map-marker__marker--big',
+            hintType: 'hint--info'
+        }
+
   };
 
-  shouldComponentUpdate = shouldPureComponentUpdate;
+  // shouldComponentUpdate = shouldPureComponentUpdate;
 
   constructor(props) {
     super(props);
     this.alive = true;
   }
 
-  _onShowBallonStateChange = (...args) => {
+  _onShowBallonStateChange (...args) {
     if (!this.alive) return;
     this.props.onShowBallonStateChange(...args);
   }
 
-  _onHoverStateChange = (...args) => {
+  _onHoverStateChange (...args) {
     if (!this.alive) return;
     this.props.onHoverStateChange(...args);
   }
 
-  _onMouseEnterContent = (/*e*/) => {
+  _onMouseEnterContent (/*e*/) {
     this.props.$onMouseAllow(false); // disable mouse move hovers
   }
 
-  _onMouseLeaveContent = (/*e*/) => {
+  _onMouseLeaveContent (/*e*/) {
     this.props.$onMouseAllow(true); // enable mouse move hovers
   }
 
-  _onCloseClick = () => {
+  _onCloseClick() {
     if (this.props.onCloseClick) {
       this.props.onCloseClick();
     }

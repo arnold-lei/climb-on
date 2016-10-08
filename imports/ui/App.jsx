@@ -5,7 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import { Tasks } from '../api/tasks.js';
 import Map from './Map.jsx'
-import MainMapBlock from './main_map_block'
+// import MainMapBlock from './main_map_block'
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
@@ -38,8 +38,8 @@ class App extends Component {
   }
   renderMap(){
       return(
-        //   <Map />
-          <MainMapBlock />
+          <Map />
+        //   <MainMapBlock />
       )
   }
   renderTasks() {
