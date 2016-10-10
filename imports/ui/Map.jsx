@@ -31,11 +31,7 @@ const greatPlaceStyle = {
 
 
 class SimpleMapPage extends React.Component {
-
-
-
   //shouldComponentUpdate = shouldPureComponentUpdate;
-
   constructor(props) {
     super(props);
     this.state = {
@@ -58,6 +54,7 @@ class SimpleMapPage extends React.Component {
         defaultCenter={this.state.defaultCenter}
         defaultZoom={this.state.zoom}
         >
+        <MyGreatPlace lat={40.7128} lng={-74.0059} text={'New York'} /* Kreyser Avrora */ />
       </GoogleMap>
       </div>
     );
