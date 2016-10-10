@@ -5,6 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import { Tasks } from '../api/tasks.js';
 import Map from './Map.jsx'
+import MyTestMap from './MyTestMap.jsx'
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
