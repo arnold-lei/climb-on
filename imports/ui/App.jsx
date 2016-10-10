@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Climb On ({this.props.incompleteCount})</h1>
+          <h1>Climb On</h1>
           <AccountsUIWrapper />
         </header>
 
