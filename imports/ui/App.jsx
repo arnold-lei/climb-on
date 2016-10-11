@@ -6,7 +6,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Tasks } from '../api/tasks.js';
 import Map from './Map.jsx'
 import Task from './Task.jsx';
-import CreateMarker from './CreateMarker.jsx'
+import CreateMarker from '../../client/CreateMarker.jsx'
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 // App component - represents the whole app
@@ -83,12 +83,4 @@ App.propTypes = {
   currentUser: PropTypes.object,
 };
 
-export default createContainer(() => {
-  Meteor.subscribe('tasks');
-
-  return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),
-  };
-}, App);
+export default App

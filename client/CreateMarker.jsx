@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-
-Markers = new Mongo.Collection("markers");
+import { Markers } from '../imports/api/markers.js';
 
 export default class CreateMarker extends TrackerReact(React.Component) {
     markers(){
-        return Markers.find().fetch();
+        return Method.call(Markers.find()).fetch();
     }
 
     addMarker(event){
@@ -14,14 +13,7 @@ export default class CreateMarker extends TrackerReact(React.Component) {
         var lat = this.refs.lat.value.trim();
         var lng = this.refs.lng.value.trim();
         console.log(name, lat, lng);
-
-        Markers.insert({
-            name: name,
-            lat: lat,
-            lng: lng,
-            complete: false,
-            createdAt: new Date()
-        });
+        Meteor.call('Markers.insert', name, lat, lng);
         // console.log(Markers)
         this.refs.name.value = "";
         this.refs.lat.value = "";
@@ -38,7 +30,7 @@ export default class CreateMarker extends TrackerReact(React.Component) {
   }
 
   render() {
-      console.log(this.markers())
+    // console.log(this.markers())
     return (
         <form className="form" onSubmit={this.addMarker.bind(this)}>
             <input
@@ -62,4 +54,10 @@ export default class CreateMarker extends TrackerReact(React.Component) {
     );
   }
 }
-export default CreateMarker
+export default createContainer((props) => {
+
+     Meteor.subscribe('markers');
+     return {
+       bin: Bins.findOne(binId)
+     }
+}, BinsMain) ;
