@@ -26,3 +26,5 @@ react-meteor-data
 dburles:google-maps
 meteortoys:allthings
 kadira:flow-router
+ultimatejs:tracker-react
+autopublish
