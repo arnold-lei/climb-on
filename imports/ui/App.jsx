@@ -6,6 +6,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Tasks } from '../api/tasks.js';
 import Map from './Map.jsx'
 import Task from './Task.jsx';
+import MapRoute from './MapRoute.jsx'
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 // App component - represents the whole app
@@ -58,10 +59,16 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div >
         <header>
-          <h1>Climb On</h1>
-          <AccountsUIWrapper />
+
+          <nav className="navbar navbar-default">
+            <div className="container-fluid">
+                <h1>Climb On</h1>
+                <AccountsUIWrapper />
+            </div>
+          </nav>
+          <MapRoute />
         </header>
 
         {this.renderMap()}
