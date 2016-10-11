@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
-class MapRoute extends React.Component {
+Markers = new Mongo.Collection("markers");
+
+export default class CreateMarker extends React.Component {
+    addMarker(event){
+        event.preventDefault();
+        console.log(this)
+    }
   constructor(props) {
     super(props);
     this.state = {
@@ -10,27 +16,21 @@ class MapRoute extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
   render() {
     return (
         <form>
             <input
               type="text"
-              value={this.state.lat}
-              onChange={this.handleChange}
+              placeholder={this.state.lat}
             />
             <input
               type="text"
-              value={this.state.lng}
-              onChange={this.handleChange}
+              placeholder={this.state.lng}
             />
-            <button>Submit</button>
+            <button onSubmit={this.addMarker.bind(this)}>Submit</button>
         </form>
 
     );
   }
 }
-export default MapRoute
+export default CreateMarker
