@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import { Markers } from '../imports/api/markers.js';
+import { Markers } from '../../imports/api/markers.js';
 
 export default class CreateMarker extends TrackerReact(React.Component) {
     markers(){
