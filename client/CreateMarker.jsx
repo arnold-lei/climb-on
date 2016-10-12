@@ -12,8 +12,9 @@ export default class CreateMarker extends TrackerReact(React.Component) {
         var name = this.refs.name.value.trim();
         var lat = this.refs.lat.value.trim();
         var lng = this.refs.lng.value.trim();
+        var des = this.refs.des.value.trim();
         console.log(name, lat, lng);
-        Meteor.call('Markers.insert', name, lat, lng);
+        Meteor.call('Markers.insert', name, lat, lng, des);
         // console.log(Markers)
         this.refs.name.value = "";
         this.refs.lat.value = "";
@@ -48,16 +49,14 @@ export default class CreateMarker extends TrackerReact(React.Component) {
               placeholder={this.state.lng}
               ref="lng"
             />
+            <input
+              type="text"
+              placeholder="Description"
+              ref="des"
+            />
             <button >Submit</button>
         </form>
 
     );
   }
 }
-// export default createContainer((props) => {
-//
-//      Meteor.subscribe('markers');
-//      return {
-//        bin: Bins.findOne(binId)
-//      }
-// }, Markers) ;

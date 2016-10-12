@@ -10,8 +10,7 @@ export default class MyGreatPlace extends Component {
   // };
   //
   // static defaultProps = {};
-  //
-  // shouldComponentUpdate = shouldPureComponentUpdate;
+ 
 
   render() {
     return (

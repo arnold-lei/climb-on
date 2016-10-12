@@ -6,13 +6,14 @@ import { check } from 'meteor/check';
 export const Markers = new Mongo.Collection('markers');
 
 Meteor.methods({
-  'Markers.insert': function(name, lat, lng) {
+  'Markers.insert': function(name, lat, lng, des) {
       console.log('inserting now!')
     return Markers.insert({
         //basically means 'name: name'
         name,
         lat,
         lng,
+        description: des,
         complete: false,
         createdAt: new Date()
         // ownerId: this.userId

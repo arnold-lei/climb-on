@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import GoogleMap from 'google-map-react';
 import MyGreatPlace from './my_great_places';
 
+import Markers from '../api/markers.js'
+
 var divStyle = {
   width:'100%',
   height:768
@@ -42,7 +44,9 @@ class SimpleMapPage extends React.Component {
   }
 
   render() {
+    let poi = Meteor.call('Markers.find'); 
     return (
+
        <div style={divStyle}>
        <GoogleMap
         bootstrapURLKeys={{
