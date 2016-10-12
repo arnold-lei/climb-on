@@ -3,8 +3,6 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
 
-export const Markers = new Mongo.Collection('markers');
-
 Meteor.methods({
   'Markers.insert': function(name, lat, lng, des) {
       console.log('inserting now!')

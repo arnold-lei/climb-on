@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Map from './Map.jsx';
-import Markers from '../api/markers.js';
+// import Markers from '../api/markers.js';
 // import CreateMarker from '../../client/CreateMarker.jsx'
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
