@@ -2,12 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import Map from './Map.jsx'
-import CreateMarker from '../../client/CreateMarker.jsx'
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
-
+import Map from './Map.jsx';
+Markers = new Mongo.Collection("markers");
+import AccountsUIWrapper from '../accounts/AccountsUIWrapper.jsx';
 // App component - represents the whole app
-class App extends Component {
+class MapWrapper extends Component {
   constructor(props) {
     super(props);
 
@@ -35,5 +34,10 @@ class App extends Component {
   }
 }
 
+export default createContainer((props) => {
 
-export default App
+     Meteor.subscribe('markers');
+     return {
+       poi: Markers.find({}, { sort: { createdAt: -1 } }).fetch()
+     }
+}, MapWrapper) ;
