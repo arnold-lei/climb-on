@@ -54,10 +54,10 @@ export default class CreateMarker extends TrackerReact(React.Component) {
     );
   }
 }
-export default createContainer((props) => {
-
-     Meteor.subscribe('markers');
-     return {
-       bin: Bins.findOne(binId)
-     }
-}, BinsMain) ;
+// export default createContainer((props) => {
+//
+//      Meteor.subscribe('markers');
+//      return {
+//        bin: Bins.findOne(binId)
+//      }
+// }, Markers) ;
