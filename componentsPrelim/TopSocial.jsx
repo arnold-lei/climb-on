@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var TopSocial = React.createClass({
-  render: function() {
+class Topsocial extends React.Component{
+  render() {
     return (
 
       <div className="top">
@@ -38,6 +38,6 @@ var TopSocial = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = #
+export default Topsocial

@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var Signup = React.createClass({
-  render: function() {
+class Signup extends React.Component{
+  render() {
     return (
 
       <div className="gradient">
@@ -51,5 +51,7 @@ var Signup = React.createClass({
       </div>
     );
   }
-});
+}
+
+export default Signup
 

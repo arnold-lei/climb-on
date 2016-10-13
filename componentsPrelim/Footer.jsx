@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var Footer = React.createClass({
-  render: function() {
+class Footer extends React.Component{
+  render() {
     return (
 
       <footer>
@@ -40,6 +40,6 @@ var Footer = React.createClass({
       </footer>
     );
   }
-});
+}
 
-module.exports = #
+export default Footer

@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var Login = React.createClass({
-  render: function() {
+class Login extends React.Component{
+  render() {
     return (
 
       <div className="gradient">
@@ -39,6 +39,6 @@ var Login = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = #
+export default Login

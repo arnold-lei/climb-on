@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var Technologies = React.createClass({
-  render: function() {
+class Technologies extends React.Component{
+  render() {
     return (
 
       <section className="box-content box-3" id="nav-gallery">
@@ -36,6 +36,6 @@ var Technologies = React.createClass({
       </section>
     );
   }
-});
+}
 
-module.exports = #
+export default Technologies

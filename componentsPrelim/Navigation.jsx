@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var Navigation = React.createClass({
-  render: function() {
+class Navigation extends React.Component{
+  render() {
     return (
 
       <div id="nav-wrapper">
@@ -51,4 +51,6 @@ var Navigation = React.createClass({
       </div>
     );
   }
-});
+}
+
+export default Navigation

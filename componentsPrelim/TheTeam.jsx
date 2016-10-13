@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var TheTeam = React.createClass({
-  render: function() {
+class Theteam extends React.Component{
+  render() {
     return (
 
       <section className="box-content box-6 box-style-2" id="nav-testimonials">
@@ -55,6 +55,6 @@ var TheTeam = React.createClass({
       </section>
     );
   }
-});
+}
 
-module.exports = #
+export default Theteam

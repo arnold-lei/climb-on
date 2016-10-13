@@ -2,8 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 
 
-var OtherStuff = React.createClass({
-  render: function() {
+class Otherstuff extends React.Component{
+  render() {
     return (
 
       <section className="box-content box-2 box-style-1" id="nav-event">
@@ -39,6 +39,6 @@ var OtherStuff = React.createClass({
       </section>
     );
   }
-});
+}
 
-module.exports = #
+export default Otherstuff

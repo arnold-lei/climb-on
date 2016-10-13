@@ -2,8 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 
 
-var WhatWeDo = React.createClass({
-  render: function() {
+class Whatwedo extends React.Component{
+  render() {
     return (
 
       <div id="page-content">
@@ -48,6 +48,6 @@ var WhatWeDo = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = #
+export default Whatwedo

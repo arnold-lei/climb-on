@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var Carousel = React.createClass({
-  render: function() {
+class Carousel extends React.Component{
+  render() {
     return (
 
       <header>
@@ -61,6 +61,6 @@ var Carousel = React.createClass({
       </header>
     );
   }
-});
-
-module.exports = #
+}
+ 
+export default Carousel
