@@ -1,6 +1,10 @@
 import React from 'react';
 import CreateMarker from '../components/CreateMarker';
+import SimpleMapPage from '../map/Map';
 
 export const Marker = () => (
-  <CreateMarker />
+    <div>
+      <CreateMarker />
+      <SimpleMapPage />
+    </div>
 );

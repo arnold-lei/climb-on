@@ -9,9 +9,11 @@ import AccountsUIWrapper from '../accounts/AccountsUIWrapper.jsx';
 class MapWrapper extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       hideCompleted: false,
+      subscription: {
+          markers: Meteor.subscribe('allMarkers')
+      }
     };
   }
   render() {
@@ -36,7 +38,7 @@ class MapWrapper extends Component {
 
 export default createContainer((props) => {
 
-     Meteor.subscribe('markers');
+     Meteor.subscribe('allMarkers');
      return {
        poi: Markers.find({}, { sort: { createdAt: -1 } }).fetch()
      }

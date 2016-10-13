@@ -1,7 +1,14 @@
-import { Meteor } from 'meteor/meteor';
+//
+// import { Meteor } from 'meteor/meteor';
+// import { Markers } from '../../imports/api/markers.js';
 
 Markers = new Mongo.Collection('markers');
 
+Meteor.startup(() => {
+  Meteor.publish('markers', function() {
+    return Markers.find();
+  });
+});
 
 //giving all the resolutions
 Meteor.publish("allMarkers", function(){
