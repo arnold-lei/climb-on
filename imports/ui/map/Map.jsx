@@ -62,8 +62,10 @@ class SimpleMapPage extends React.Component {
                     key: 'AIzaSyDAQIZigb4sd4EIMVeDZ1jxdx8tH9QRyEM',
                     language: 'us'
                 }} center={this.state.center} zoom={this.state.zoom} defaultCenter={this.state.defaultCenter} defaultZoom={this.state.zoom}>
-                    <MyGreatPlace lat={40.7128} lng={-74.0059} text={'New York'} /* Kreyser Avrora */
-                    />
+                {this.markers().map( (marker) => {
+                {/* the key here needs to be there because React demands that everytime you loop and render something like this, it has a unique key for each item */}
+                  return <MyGreatPlace lat={marker.lat} lng={marker.lng} text={marker.name} />
+                })}
                 </GoogleMap>
             </div>
         );
