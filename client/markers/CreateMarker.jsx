@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 Markers = new Mongo.Collection("markers");
+
 export default class CreateMarker extends TrackerReact(React.Component) {
     constructor() {
         super();
@@ -13,9 +14,24 @@ export default class CreateMarker extends TrackerReact(React.Component) {
             },
             lat: 'Lat!',
             lng: 'Lng!',
-            name: 'Name'
+            name: 'Name',
+            initialPosition: {lat: 50.4, lng: 30.4}
         }
     }
+
+    getCurrentPosition(){
+		navigator.geolocation.getCurrentPosition( (position) => {
+			let initialPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
+			this.setState({
+				initialPosition,
+			});
+		},
+		(error) => {
+			alert(error.message);
+		},
+		{enableHighAccuracy: true, timeout: 20000, maximumAge: 10}
+		);
+	}
     markers() {
         Meteor.call('allMarkers')
     }
@@ -33,6 +49,7 @@ export default class CreateMarker extends TrackerReact(React.Component) {
         this.refs.lng.value = "";
     }
     render() {
+        console.log(this.state)
         console.log(this.markers())
         return (
             <form className="form" onSubmit={this.addMarker.bind(this)}>

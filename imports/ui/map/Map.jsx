@@ -35,6 +35,7 @@ class SimpleMapPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            userPosition: {lat: 50.4, lng: 30.4},
             defaultCenter: {
                 lat: 40.7128,
                 lng: -74.0059
@@ -50,18 +51,33 @@ class SimpleMapPage extends React.Component {
             markers: Markers.find().fetch()
         };
     }
+	componentDidMount() {
+		this.getCurrentPosition();
+	}
+    getCurrentPosition(){
+        navigator.geolocation.getCurrentPosition( (position) => {
+            let userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
+            this.setState({
+                userPosition,
+            });
+        },
+        (error) => {
+            alert(error.message);
+        },
+        {enableHighAccuracy: true, timeout: 20000, maximumAge: 10}
+        );
+    }
     markers(){
         return Markers.find().fetch();
     }
     render() {
-        let poi = this.markers();
-        console.log('This', poi);
+        console.log(this.state.userPosition)
         return (
             <div style={divStyle}>
                 <GoogleMap bootstrapURLKeys={{
                     key: 'AIzaSyDAQIZigb4sd4EIMVeDZ1jxdx8tH9QRyEM',
                     language: 'us'
-                }} center={this.state.center} zoom={this.state.zoom} defaultCenter={this.state.defaultCenter} defaultZoom={this.state.zoom}>
+                }} center={this.state.userPosition} zoom={this.state.zoom} defaultCenter={this.state.defaultCenter} defaultZoom={this.state.zoom}>
                 {this.markers().map( (marker) => {
                 {/* the key here needs to be there because React demands that everytime you loop and render something like this, it has a unique key for each item */}
                   return <MyGreatPlace lat={marker.lat} lng={marker.lng} text={marker.name} />
