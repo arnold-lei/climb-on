@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 // Markers = new Mongo.Collection("markers");
 export default class CreateMarker extends TrackerReact(React.Component) {
+    constructor(){
+        super();
+        this.state = {
+          //without TrackerReact, you can't do the following:
+          //if we change what gets published in publish.js then what's available in the front end (see with ctrl + m) is limited to just that.
+          subscription: {
+            //resolutions : Meteor.subscribe('allResolutions')
+            markers : Meteor.subscribe('allMarkers')
+            },
+        lat: 'Lat!',
+        lng: 'Lng!',
+        name: 'Name',
+        }
+    }
     markers(){
-        return Markers.find().fetch();
+        Meteor.call('allMarkers')
     }
 
     addMarker(event){
@@ -18,16 +32,6 @@ export default class CreateMarker extends TrackerReact(React.Component) {
         this.refs.lat.value = "";
         this.refs.lng.value = "";
     }
-  constructor(props) {
-    super(props);
-    this.state = {
-        lat: 'Lat!',
-        lng: 'Lng!',
-        name: 'Name',
-    };
-    // this.handleChange = this.handleChange.bind(this);
-  }
-
   render() {
     console.log(this.markers())
     return (

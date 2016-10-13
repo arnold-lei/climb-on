@@ -17,6 +17,9 @@ Meteor.methods({
   'Markers.find': function(){
       return Markers.find()
   },
+  'allMarkers': function(){
+      return Markers.find()
+  }
   // 'Markers.update': function(marker, content) {
   //   return marker.update(bin._id, { $set: { content } });
   // }
