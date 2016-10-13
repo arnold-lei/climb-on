@@ -1,10 +1,6 @@
-import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';
-
 Meteor.methods({
   'Markers.insert': function(name, lat, lng) {
-    // console.log('inserting now!');
+      console.log('inserting now!')
     return Markers.insert({
         //basically means 'name: name'
         name,
@@ -21,6 +17,9 @@ Meteor.methods({
   'Markers.find': function(){
       return Markers.find()
   },
+  'allMarkers': function(){
+      return Markers.find()
+  }
   // 'Markers.update': function(marker, content) {
   //   return marker.update(bin._id, { $set: { content } });
   // }
