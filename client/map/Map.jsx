@@ -39,12 +39,14 @@ class SimpleMapPage extends React.Component {
      zoom: 12,
      greatPlaceCoords: {lat: 59.724465, lng: 30.080121},
      subscription: {
-        resolutions : Meteor.subscribe('allMarkers')
+        markers : Meteor.subscribe('allMarkers')
       }
    };
   }
 
   render() {
+      console.log(Markers.find().fetch());
+      console.log('This', this.state.subscription.markers);
     return (
        <div style={divStyle}>
        <GoogleMap
