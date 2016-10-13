@@ -37,7 +37,10 @@ class SimpleMapPage extends React.Component {
     this.state = {
      defaultCenter: {lat: 40.7128, lng: -74.0059},
      zoom: 12,
-     greatPlaceCoords: {lat: 59.724465, lng: 30.080121}
+     greatPlaceCoords: {lat: 59.724465, lng: 30.080121},
+     subscription: {
+        resolutions : Meteor.subscribe('allMarkers')
+      }
    };
   }
 

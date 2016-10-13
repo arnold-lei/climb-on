@@ -7,10 +7,10 @@ export default class CreateMarker extends TrackerReact(React.Component) {
         this.state = {
           //without TrackerReact, you can't do the following:
           //if we change what gets published in publish.js then what's available in the front end (see with ctrl + m) is limited to just that.
-          subscription: {
+        subscription: {
             //resolutions : Meteor.subscribe('allResolutions')
             markers : Meteor.subscribe('allMarkers')
-            },
+        },
         lat: 'Lat!',
         lng: 'Lng!',
         name: 'Name',
