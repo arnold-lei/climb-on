@@ -1,44 +1,17 @@
-//
-// import React, { Component } from 'react';
-//
-//
-import {greatPlaceStyle} from './my_great_place_styles';
-//
-// export default class MyGreatPlace extends Component {
-//   // static propTypes = {
-//   //   text: PropTypes.string
-//   // };
-//   //
-//   // static defaultProps = {};
-//   //
-//   // shouldComponentUpdate = shouldPureComponentUpdate;
-//
-//   render() {
-//     return (
-//        <div style={greatPlaceStyle}>
-//           {this.props.text}
-//        </div>
-//     );
-//   }
-// }
+
+import {greatPlaceStyle, greatPlaceStyleHover}from './my_great_place_styles';
 import React, {PropTypes, Component} from 'react';
-
-
-// import {greatPlaceStyle, greatPlaceStyleHover} from './my_great_place_with_controllable_hover_styles.js';
 
 export default class MyGreatPlace extends Component {
 
-  // shouldComponentUpdate = shouldPureComponentUpdate;
 
   constructor(props) {
     super(props);
 
-      this.propTypes= {
-        // use hover from controllable
-        hover: PropTypes.bool,
-        text: "Something to click on"
-    },
-        this.defaultProps = {}
+      this.state= {
+          hover: PropTypes.bool,
+          text: PropTypes.string
+    }
   }
 
   render() {
