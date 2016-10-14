@@ -36,7 +36,7 @@ export default class MyGreatPlace extends Component {
       this.propTypes= {
         // use hover from controllable
         hover: PropTypes.bool,
-        text: PropTypes.string
+        text: "Something to click on"
     },
         this.defaultProps = {}
   }
