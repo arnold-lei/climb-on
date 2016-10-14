@@ -1544,3 +1544,7 @@ a:hover {
     background-color: #74723a;
     color: white;
 }
+
+body{
+  padding-top: 25px;
+}

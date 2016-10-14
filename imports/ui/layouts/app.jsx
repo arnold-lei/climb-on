@@ -5,9 +5,11 @@ import AccountsUIWrapper from '../components/AccountsUIWrapper';
 
 export const App = ({ children }) => (
   <div>
-    <AccountsUIWrapper />
     <Navigation />
-    {children}
+    <div className="container">
+      <AccountsUIWrapper />
+      {children}
+      </div>
   </div>
 );
 
