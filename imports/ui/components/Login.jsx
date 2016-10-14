@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Login extends React.Component {
   render(){
     return (
-      <div className="gradient">
-        <div className="row text-center ">
+      <div>
+        <div className="row text-center">
           <div className="col-md-2 col-md-offset-5">
             <img src="assets/img/climbonbadge.png" width="100%" />
             <br />
