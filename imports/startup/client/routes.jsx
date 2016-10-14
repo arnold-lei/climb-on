@@ -8,8 +8,8 @@ import { Map } from '../../ui/pages/map.jsx';
 import { Two } from '../../ui/pages/two.jsx';
 import { Marker } from '../../ui/pages/Marker';
 import { User } from '../../ui/pages/user.jsx';
+import { LoginPage } from '../../ui/pages/LoginPage';
 import { SimpleMapPage } from '../../ui/map/Map.jsx';
-
 import { NotFound } from '../../ui/pages/not-found.jsx';
 
 Meteor.startup(() => {
@@ -28,6 +28,7 @@ Meteor.startup(() => {
           {/* Check out the "import { User } from '../../ui/pages/user.jsx' " statement on line 10 of this file^^^*/}
           <Route path="/user/:name" component={User} />
           <Route path="/marker" component={Marker} />
+          <Route path="/login" component={LoginPage} />
           <Route path="/map" component={Map} />
 
         </Route>
