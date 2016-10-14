@@ -6,15 +6,37 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: #666;
-    background-color: #EAE2D1;
+    background-color: #a5a745;
     font-size: 16px;
     line-height: 1.6em;
     font-weight: 400;
     overflow-x: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    padding-top: 25px;
+}
+/*colors*/
+  /*a5a745*/
+  /*737530*/
+  /*EAE2D1*/
+  /*#F6F3ED*/
+
+
+body.index-page {}
+
+body.sub-page {
+    padding-top: 30px;
+    background-color: #F9F9F9;
 }
 
-html,
-body {
+body.sub-page .logo {
+    margin: 110px 0 80px;
+    background: url(../images/bg.jpg) fixed;
+    padding: 30px 0 50px;
+}
+
+
+html {
     width: 100%;
     padding: 0;
     margin: 0;
@@ -163,20 +185,6 @@ hr.line {
 
 
 /* --Page-- */
-
-body.index-page {}
-
-body.sub-page {
-    padding-top: 30px;
-    background-color: #F9F9F9;
-}
-
-body.sub-page .logo {
-    margin: 110px 0 80px;
-    background: url(../images/bg.jpg) fixed;
-    padding: 30px 0 50px;
-}
-
 
 /*header*/
 
@@ -901,9 +909,7 @@ a.btn:focus {
 
 
 
-body {
-    font-family: 'Open Sans', sans-serif;
-}
+
 
 #wrapper {
     width: 100%;
@@ -1485,14 +1491,6 @@ background-color: #FFF;
 /**/
 /* login.css */
 
-
-
-body {
-    overflow-x: hidden;
-    color: #F6F3ED;
-    font-family: 'Open Sans', sans-serif;
-}
-
 .gradient {
     height: 100%;
     text-align: center;
@@ -1543,8 +1541,4 @@ a:hover {
 .btn:hover {
     background-color: #74723a;
     color: white;
-}
-
-body{
-  padding-top: 25px;
 }
