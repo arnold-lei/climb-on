@@ -1,0 +1,31 @@
+{
+    "public": {},
+    "private": {
+        "oAuth": {
+
+            "facebook": {
+                "appId": "1598062220490793",
+                "secret": "ff1479233ab247e5e5c1ec61697bf7da"
+            },
+
+            "github": {
+                "clientId": "",
+                "secret": ""
+            },
+
+            "google": {
+                "clientId": "",
+                "secret": ""
+            },
+
+            "twitter": {
+                "consumerKey": "",
+                "secret": ""
+            }
+        }
+    }
+}
+
+
+//https://themeteorchef.com/recipes/roll-your-own-authentication/ 
+//meteor --settings settings.json
