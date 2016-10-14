@@ -19,19 +19,7 @@ export default class CreateMarker extends TrackerReact(React.Component) {
         }
     }
 
-    getCurrentPosition(){
-		navigator.geolocation.getCurrentPosition( (position) => {
-			let initialPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
-			this.setState({
-				initialPosition,
-			});
-		},
-		(error) => {
-			alert(error.message);
-		},
-		{enableHighAccuracy: true, timeout: 20000, maximumAge: 10}
-		);
-	}
+
     markers() {
         Meteor.call('allMarkers')
     }
