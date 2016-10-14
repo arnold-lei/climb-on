@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Navigation } from '../components/navigation';
 import AccountsUIWrapper from '../components/AccountsUIWrapper';
+
 export const App = ({ children }) => (
   <div>
     <AccountsUIWrapper />
