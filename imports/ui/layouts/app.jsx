@@ -5,6 +5,7 @@ import AccountsUIWrapper from '../components/AccountsUIWrapper';
 
 export const App = ({ children }) => (
   <div>
+  
     <AccountsUIWrapper />
     <Navigation />
     {children}

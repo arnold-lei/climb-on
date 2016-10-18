@@ -1,3 +1,5 @@
+
+
 import React, {PropTypes, Component} from 'react';
 import GoogleMap from 'google-map-react';
 import MyGreatPlace from './my_great_places';
@@ -108,6 +110,8 @@ class SimpleMapPage extends React.Component {
         );
     }
 }
+
+
 export default createContainer((props) => {
 
      Meteor.subscribe('allMarkers');
